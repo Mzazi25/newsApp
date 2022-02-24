@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% block article %}
+<section class="article" id="article">
+  <div class="container">
+    <div class="row" id="wraps">
+      {% for articles in article %}
+      <div class="col-md-6" id="area">
+        <div class="card card-nav-tabs" id="shows">
+          <div class="card-header card-header-primary">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#profile" data-toggle="tab">
+                      <i class="material-icons">rate_review</i>
+                      {{articles.author}}
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#{{articles.author}}" data-toggle="tab">
+                      <i class="material-icons">description</i>
+                      More... 
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{articles.url}}" target="blank">
+                      <i class="material-icons">link</i>
+                      View Source
+                    </a>
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body ">
+            <div class="tab-content text-center">
+              <div class="tab-pane active" id="profile">
+                <div class="myImage">
+                  <img src="{{articles.urlToImage}}" class="img-hover-zoom" alt="news image">
+                </div>
+                <div class="heads">
+                  <p>
+                    {{articles.description|truncate(100)}}..
+                  </p>
+                </div>
+                <div id="textbox" style="clear: both;">
+                  <p class="alignleft"><i class="far fa-hand-point-right"
+                      style="font-size:15px;color:#feb300"></i><small class="text-muted">
+                      {{articles.title}}</small></p>
+                </div>
+              </div>
+              <div class="tab-pane" id="{{articles.author}}">
+                <h6>Article</h6>
+                {{articles.description}}
+                <hr>
+                <p>
+                  {{articles.content}}
+                </p>
+                <p class="alignright"><i class="far fa-clock" style="font-size:15px;color:#feb300"></i><small
+                    class="text-muted">
+                    {{articles.publishedAt}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
