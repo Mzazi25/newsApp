@@ -58,21 +58,47 @@ def process_results(news_list):
 
     return news_results
 
-def get_articles():
+def get_articles(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_article_url = article_url.format(api_key)
+    get_articles_url = article_url.format(category,api_key)
 
-    with urllib.request.urlopen(get_article_url) as url:
+    with urllib.request.urlopen(get_articles_url) as url:
         get_article_data = url.read()
         get_article_response = json.loads(get_article_data)
 
         article_results = None
 
-        if get_article_response['sources']:
-            article_results_list = get_article_response['sources']
-            article_results = process_results(article_results_list)
+        if get_article_response['articles']:
+            article_results_list = get_article_response['articles']
+            article_results = article_process_results(article_results_list)
 
+
+    return article_results
+
+def article_process_results(article_list):
+    '''
+    Function  that processes the news result and transform them to a list of Objects
+
+    Args:
+        article_list: A list of dictionaries that contain news details
+
+    Returns :
+        article_results: A list of article objects
+    '''
+    article_results = []
+    for article_item in article_list:        
+        author = article_item.get('author')
+        title = article_item.get('title')
+        description = article_item.get('description')
+        url = article_item.get('url')
+        urlToImage = article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
+        content = article_item.get('content')
+
+        if url:
+            article_object= Articles(author,title,description,url,urlToImage,publishedAt,content)
+            article_results.append(article_object)
 
     return article_results

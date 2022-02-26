@@ -3,13 +3,14 @@
 <a href="{{sources.url}}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="click to view source">
     <div class="info" id="count">
         <div>
-            <h6>{{sources.name}}</h6>
+            <h2>{{sources.name}}</h2>
             <p>
-                {{sources.description|truncate(50)}}
-            </p>
+                {{sources.description}}
+            </p>            
 
         </div>
     </div>
 </a>
+
 {% endfor %}
 {% endmacro %}
