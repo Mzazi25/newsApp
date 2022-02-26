@@ -1,10 +1,10 @@
 from flask import render_template,request,redirect,url_for
-from .. import main
+from .import main
 from ..requests import get_news
-import app
+
 
 # Views
-@app.route('/')
+@main.route('/',methods=[ 'POST','GET'])
 def index():
     '''
     View root page function that returns the index page and its data

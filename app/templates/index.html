@@ -1,1 +1,60 @@
-<h1>Hello</h1>
+{% import 'macros.html' as macro %}
+{% block source %}
+<section class="source" id="source">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navs">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#articles">Articles</a></li>
+                        <li class="breadcrumb-item active">Contacts Us</li>
+                        <li class="breadcrumb-item active">Sources</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="header">
+                                <h4>
+                                    Want to upload a <span class="upload">News article?</span>
+                                </h4>
+                                <p>Get in Touch</p>
+                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="Your email address">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                        placeholder="Talk to us"></textarea>
+                                </div>
+                                <button type="submit" id="git" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img">
+                                <img class="img-fluid" src="../static/images/2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" id="scroller">
+                <div class="overflow-auto" id="scrolls">
+                    <div class="start">
+                        <h4>Top News Sources</h4>
+                        <p><strong><span id="disp">40 </span> categories</strong></p>
+                    </div>
+                    {{ macro.displayNewsSources(sources)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
