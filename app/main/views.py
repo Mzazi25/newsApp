@@ -18,4 +18,4 @@ def index():
     sources = get_news()
     
     
-    return render_template('index.html', context=data,sources= sources)
+    return render_template('index.html',context=data,sources= sources)
