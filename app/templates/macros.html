@@ -1,16 +1,23 @@
 {% macro displayNewsSources(sources_list) %}
 {% for sources in sources_list %}
-<a href="{{sources.url}}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="click to view source">
-    <div class="info" id="count">
-        <div>
-            <h2>{{sources.name}}</h2>
-            <p>
-                {{sources.description}}
-            </p>            
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{{sources.url}}" target="_blank" data-bs-toggle="tooltip" class="link-success" title="click to view source">
+                <div class="info" id="count">
+                    <div>
+                        <h2>{{sources.name}}</h2>
+                        <p>
+                            {{sources.description|truncate(40)}}
+                        </p>            
+            
+                    </div>
+                </div>
+            </a>
 
         </div>
     </div>
-</a>
+</div>
 
 {% endfor %}
 {% endmacro %}

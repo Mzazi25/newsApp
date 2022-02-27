@@ -3,10 +3,10 @@
 {% block article %}
 <section class="article" id="article">
   <div class="container">
-    <div class="row" id="wraps">
+    <div class="row">
       {% for articles in article %}
-      <div class="col-md-6" id="area">
-        <div class="card card-nav-tabs" id="shows">
+      <div class="col-md-6">
+        <div class="card card-nav-tabs">
           <div class="card-header card-header-primary">
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
@@ -38,7 +38,7 @@
             <div class="tab-content text-center">
               <div class="tab-pane active" id="profile">
                 <div class="myImage">
-                  <img src="{{articles.urlToImage}}" class="img-hover-zoom" alt="news image">
+                  <img src="{{articles.urlToImage}}" class="img-fluid " alt="Responsive image">
                 </div>
                 <div class="heads">
                   <p>
