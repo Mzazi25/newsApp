@@ -20,7 +20,7 @@ The application consumes the NewsAPI hence the application provides the followin
 * The section is set to display four articles by default, more articles can be accessed by clicking the load more button at the bottom of the page
 
 #### Description
-    This is an error page indicating that the browser was able to communicate with server but not able to find the requested page.
+This Applications fetches News sources and articles from an API and displays the contents that we just fetched.
 
 ### Live link
 Visit the application on 
