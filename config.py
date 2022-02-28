@@ -11,7 +11,14 @@ class Config:
 
 
 class ProdConfig(Config):
-    pass
+    '''
+    Production Configuration Child Class
+    '''
+    '''
+    Args:
+        Config:It inherits from the parent configuration class with the general configurations
+    '''
+    NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
 
 
 class DevConfig(Config):
